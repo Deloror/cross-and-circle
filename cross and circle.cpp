@@ -752,15 +752,12 @@ int main()
         system("CLS");
         cout << "Tryb singleplayer" << endl;
 
-
-
-
-
     int tab[4][4];
     int i=0;
     int y=0;
     int z=1;
     int a=0;
+    int runda=0;
 
     cout << "Wybierz gdzie chcesz postawic x wpisujac liczbe" << endl << endl;
 
@@ -814,13 +811,12 @@ int main()
     cout << tabc[1][0] << " " << tabc[1][1] << " " << tabc[1][2] << endl;
     cout << tabc[2][0] << " " << tabc[2][1] << " " << tabc[2][2] << endl << endl;
 
-
+//MOVE ONE
     cin >> a;
-
 
     if(a<10 & 0<a)
     {
-
+        runda++;
     }
 
     else
@@ -828,7 +824,6 @@ int main()
         cout << endl << "Podano zla wartosc" << endl;
         return 0;
     }
-
 
 
     switch (a)
@@ -880,8 +875,19 @@ int main()
     cout << tabc[2][0] << " " << tabc[2][1] << " " << tabc[2][2] << endl << endl;
 
     int b=0;
+//MOVE TWO
     cin >> b;
 
+    if(b<10 & 0<b)
+    {
+        runda++;
+    }
+
+    else
+    {
+        cout << endl << "Podano zla wartosc" << endl;
+        return 0;
+    }
     switch (b)
     {
         case 1:
@@ -921,6 +927,8 @@ int main()
         break;
     }
 
+
+
 //ROGI
 
     if(tabc[0][0]=='x' & tabc[0][1]=='x'){tabc[0][2]='o';}
@@ -950,7 +958,21 @@ int main()
     cout << tabc[2][0] << " " << tabc[2][1] << " " << tabc[2][2] << endl << endl;
 
     int c=0;
+//MOVE THREE
+
     cin >> c;
+
+    if(c<10 & 0<c)
+    {
+        runda++;
+    }
+
+    else
+    {
+        cout << endl << "Podano zla wartosc" << endl;
+        return 0;
+    }
+
     z=0;
 
     switch (c)
@@ -992,7 +1014,53 @@ int main()
         break;
     }
 
+    //LEFT TO RIGHT WIN
+    if(tabc[0][0]=='o' & tabc[0][1]=='o' & tabc[0][2]=='o'){a=11;}
+    if(tabc[1][0]=='o' & tabc[1][1]=='o' & tabc[1][2]=='o'){a=11;}
+    if(tabc[2][0]=='o' & tabc[2][1]=='o' & tabc[2][2]=='o'){a=11;}
 
+    //UP TO DOWN WIN
+    if(tabc[0][0]=='o' & tabc[1][0]=='o' & tabc[2][0]=='o'){a=11;}
+    if(tabc[0][1]=='o' & tabc[1][1]=='o' & tabc[2][1]=='o'){a=11;}
+    if(tabc[0][2]=='o' & tabc[1][2]=='o' & tabc[2][2]=='o'){a=11;}
+
+    //DIAGONAL WIN
+    if(tabc[0][0]=='o' & tabc[1][1]=='o' & tabc[2][2]=='o'){a=11;}
+    if(tabc[2][0]=='o' & tabc[1][1]=='o' & tabc[0][2]=='o'){a=11;}
+
+
+    if(a==11)
+    {
+        cout << "Przegrales"<< endl;
+        cout << tabc[0][0] << " " << tabc[0][1] << " " << tabc[0][2] << endl;
+        cout << tabc[1][0] << " " << tabc[1][1] << " " << tabc[1][2] << endl;
+        cout << tabc[2][0] << " " << tabc[2][1] << " " << tabc[2][2] << endl << endl;
+        return 0;
+    }
+
+    //LEFT TO RIGHT WIN
+    if(tabc[0][0]=='x' & tabc[0][1]=='x' & tabc[0][2]=='x'){a=22;}
+    if(tabc[1][0]=='x' & tabc[1][1]=='x' & tabc[1][2]=='x'){a=22;}
+    if(tabc[2][0]=='x' & tabc[2][1]=='x' & tabc[2][2]=='x'){a=22;}
+
+    //UP TO DOWN WIN
+    if(tabc[0][0]=='x' & tabc[1][0]=='x' & tabc[2][0]=='x'){a=22;}
+    if(tabc[0][1]=='x' & tabc[1][1]=='x' & tabc[2][1]=='x'){a=22;}
+    if(tabc[0][2]=='x' & tabc[1][2]=='x' & tabc[2][2]=='x'){a=22;}
+
+    //DIAGONAL WIN
+    if(tabc[0][0]=='x' & tabc[1][1]=='x' & tabc[2][2]=='x'){a=22;}
+    if(tabc[2][0]=='x' & tabc[1][1]=='x' & tabc[0][2]=='x'){a=22;}
+
+
+    if(a==22)
+    {
+        cout << "Wygrales"<< endl;
+        cout << tabc[0][0] << " " << tabc[0][1] << " " << tabc[0][2] << endl;
+        cout << tabc[1][0] << " " << tabc[1][1] << " " << tabc[1][2] << endl;
+        cout << tabc[2][0] << " " << tabc[2][1] << " " << tabc[2][2] << endl << endl;
+        return 0;
+    }
 
     //LEFT TO RIGHT
     if(tabc[0][0]=='o' & tabc[0][1]=='o' & tabc[0][2]=='*' & z==0){tabc[0][2]='o';z++;}
@@ -1036,7 +1104,21 @@ int main()
     cout << tabc[2][0] << " " << tabc[2][1] << " " << tabc[2][2] << endl << endl;
 
     int d=0;
+
+//MOVE FOUR
+
     cin >> d;
+
+    if(d<10 & 0<d)
+    {
+        runda++;
+    }
+
+    else
+    {
+        cout << endl << "Podano zla wartosc" << endl;
+        return 0;
+    }
 
     switch (d)
     {
@@ -1075,6 +1157,54 @@ int main()
         case 9:
         tabc[2][2]='x';
         break;
+    }
+
+    //LEFT TO RIGHT WIN
+    if(tabc[0][0]=='o' & tabc[0][1]=='o' & tabc[0][2]=='o'){a=11;}
+    if(tabc[1][0]=='o' & tabc[1][1]=='o' & tabc[1][2]=='o'){a=11;}
+    if(tabc[2][0]=='o' & tabc[2][1]=='o' & tabc[2][2]=='o'){a=11;}
+
+    //UP TO DOWN WIN
+    if(tabc[0][0]=='o' & tabc[1][0]=='o' & tabc[2][0]=='o'){a=11;}
+    if(tabc[0][1]=='o' & tabc[1][1]=='o' & tabc[2][1]=='o'){a=11;}
+    if(tabc[0][2]=='o' & tabc[1][2]=='o' & tabc[2][2]=='o'){a=11;}
+
+    //DIAGONAL WIN
+    if(tabc[0][0]=='o' & tabc[1][1]=='o' & tabc[2][2]=='o'){a=11;}
+    if(tabc[2][0]=='o' & tabc[1][1]=='o' & tabc[0][2]=='o'){a=11;}
+
+
+    if(a==11)
+    {
+        cout << "Przegrales"<< endl;
+        cout << tabc[0][0] << " " << tabc[0][1] << " " << tabc[0][2] << endl;
+        cout << tabc[1][0] << " " << tabc[1][1] << " " << tabc[1][2] << endl;
+        cout << tabc[2][0] << " " << tabc[2][1] << " " << tabc[2][2] << endl << endl;
+        return 0;
+    }
+
+    //LEFT TO RIGHT WIN
+    if(tabc[0][0]=='x' & tabc[0][1]=='x' & tabc[0][2]=='x'){a=22;}
+    if(tabc[1][0]=='x' & tabc[1][1]=='x' & tabc[1][2]=='x'){a=22;}
+    if(tabc[2][0]=='x' & tabc[2][1]=='x' & tabc[2][2]=='x'){a=22;}
+
+    //UP TO DOWN WIN
+    if(tabc[0][0]=='x' & tabc[1][0]=='x' & tabc[2][0]=='x'){a=22;}
+    if(tabc[0][1]=='x' & tabc[1][1]=='x' & tabc[2][1]=='x'){a=22;}
+    if(tabc[0][2]=='x' & tabc[1][2]=='x' & tabc[2][2]=='x'){a=22;}
+
+    //DIAGONAL WIN
+    if(tabc[0][0]=='x' & tabc[1][1]=='x' & tabc[2][2]=='x'){a=22;}
+    if(tabc[2][0]=='x' & tabc[1][1]=='x' & tabc[0][2]=='x'){a=22;}
+
+
+    if(a==22)
+    {
+        cout << "Wygrales"<< endl;
+        cout << tabc[0][0] << " " << tabc[0][1] << " " << tabc[0][2] << endl;
+        cout << tabc[1][0] << " " << tabc[1][1] << " " << tabc[1][2] << endl;
+        cout << tabc[2][0] << " " << tabc[2][1] << " " << tabc[2][2] << endl << endl;
+        return 0;
     }
 
     if(tabc[1][1]=='x' & tabc[0][1]=='x' & tabc[2][1]=='*'){tabc[2][1]='o';}
